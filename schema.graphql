@@ -1,0 +1,80 @@
+type VaultEntity @entity {
+  id: ID!
+  vault: String!
+  pool: String!
+  creator: String!
+  dev: String!
+  withdrawFee: BigInt!
+  timestamp: BigInt!
+}
+
+type OverviewEntity @entity {
+  id: ID!
+  vault: String!
+  positionAdjustCount: Int!
+  depositAmount0: BigInt!
+  depositAmount1: BigInt!
+  withrawAmount0: BigInt!
+  withrawAmount1: BigInt!
+  userEarned0: BigInt!
+  userEarned1: BigInt!
+}
+
+type PositionEntity @entity {
+  id: ID!
+  gp: String!
+  vault: String!
+  lowerTick: Int!
+  upperTick: Int!
+  timestamp: BigInt!
+}
+
+type DepositEntity @entity {
+  id: ID!
+  user: String!
+  vault: String!
+  share: BigInt!
+  amount0: BigInt!
+  amount1: BigInt!
+  actual0: BigInt!
+  actual1: BigInt!
+  currentTick: Int!
+  timestamp: BigInt!
+}
+
+type WithdrawEntity @entity {
+  id: ID!
+  user: String!
+  vault: String!
+  liquidity: BigInt!
+  baseAmount0: BigInt!
+  baseAmount1: BigInt!
+  tokenLeft0: BigInt!
+  tokenLeft1: BigInt!
+  balance: BigInt!
+  currentTick: Int!
+  timestamp: BigInt!
+}
+
+type ClaimEntity @entity {
+  id: ID!
+  user: String!
+  vault: String!
+  liquidity: BigInt!
+  tokenLeft0: BigInt!
+  tokenLeft1: BigInt!
+  currentTick: Int!
+  timestamp: BigInt!
+}
+
+type CollectFeesEntity @entity {
+  id: ID!
+  user: String!
+  vault: String!
+  feesFromPool0: BigInt!
+  feesFromPool1: BigInt!
+  balance0: BigInt!
+  balance1: BigInt!
+  currentTick: Int!
+  timestamp: BigInt!
+}

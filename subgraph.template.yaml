@@ -1,0 +1,57 @@
+specVersion: 0.0.2
+description: Crest Protocol for Ethereum
+repository: https://github.com/crestprotocol/crest-subgraph
+schema:
+  file: ./schema.graphql
+
+dataSources:
+  - name: FactoryData
+    kind: ethereum/contract
+    network: {{network}}
+    source:
+      address: '{{address}}'
+      abi: FactoryData
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      file: ./src/FactoryData.ts
+      entities:
+        - VaultEntity
+      abis:
+        - name: FactoryData
+          file: ./abi/FactoryData.json
+      eventHandlers:
+        - event: VaultCreated(indexed address,address,address,address,uint256)
+          handler: handleVaultCreated
+templates:
+  - name: Vault
+    kind: ethereum/contract
+    network: {{network}}
+    source:
+      abi: Vault
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      file: ./src/GeneralVault.ts
+      entities:
+        - Claim
+        - CollectFees
+        - Deposit
+        - ReBalance
+        - Withdraw
+      abis:
+        - name: Vault
+          file: ./abi/Vault.json
+      eventHandlers:
+        - event: Claim(indexed address,address,uint256,uint256,uint256,int24)
+          handler: handleClaim
+        - event: CollectFees(indexed address,address,uint256,uint256,uint256,uint256,int24)
+          handler: handleCollectFees
+        - event: Deposit(indexed address,address,uint256,uint256,uint256,uint256,uint256,int24)
+          handler: handleDeposit
+        - event: ReBalance(indexed address,address,int24,int24,uint256,uint256)
+          handler: handleReBalance
+        - event: Withdraw(indexed address,address,uint256,uint256,uint256,uint256,uint256,uint256,int24)
+          handler: handleWithdraw
