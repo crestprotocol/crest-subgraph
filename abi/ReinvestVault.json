@@ -57,49 +57,6 @@
 			{
 				"indexed": true,
 				"internalType": "address",
-				"name": "user",
-				"type": "address"
-			},
-			{
-				"indexed": false,
-				"internalType": "address",
-				"name": "vault",
-				"type": "address"
-			},
-			{
-				"indexed": false,
-				"internalType": "uint256",
-				"name": "liquidity",
-				"type": "uint256"
-			},
-			{
-				"indexed": false,
-				"internalType": "uint256",
-				"name": "tokenLeft0",
-				"type": "uint256"
-			},
-			{
-				"indexed": false,
-				"internalType": "uint256",
-				"name": "tokenLeft1",
-				"type": "uint256"
-			},
-			{
-				"indexed": false,
-				"internalType": "int24",
-				"name": "currentTick",
-				"type": "int24"
-			}
-		],
-		"name": "Claim",
-		"type": "event"
-	},
-	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": true,
-				"internalType": "address",
 				"name": "sender",
 				"type": "address"
 			},
@@ -124,13 +81,13 @@
 			{
 				"indexed": false,
 				"internalType": "uint256",
-				"name": "balance0",
+				"name": "total0",
 				"type": "uint256"
 			},
 			{
 				"indexed": false,
 				"internalType": "uint256",
-				"name": "balance1",
+				"name": "total1",
 				"type": "uint256"
 			},
 			{
@@ -303,7 +260,7 @@
 			{
 				"indexed": false,
 				"internalType": "uint256",
-				"name": "liquidity",
+				"name": "share",
 				"type": "uint256"
 			},
 			{
@@ -490,24 +447,6 @@
 	},
 	{
 		"inputs": [],
-		"name": "claim",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "tokenLeft0",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "tokenLeft1",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [],
 		"name": "decimals",
 		"outputs": [
 			{
@@ -631,19 +570,6 @@
 	},
 	{
 		"inputs": [],
-		"name": "getLastIndex",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
 		"name": "getPrice",
 		"outputs": [
 			{
@@ -716,24 +642,6 @@
 	},
 	{
 		"inputs": [],
-		"name": "getTotalEarned",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
 		"name": "getTotalStakeBalance",
 		"outputs": [
 			{
@@ -763,7 +671,7 @@
 				"type": "address"
 			}
 		],
-		"name": "getUserFee",
+		"name": "getUserBalance",
 		"outputs": [
 			{
 				"internalType": "uint256",
@@ -848,51 +756,6 @@
 	},
 	{
 		"inputs": [],
-		"name": "leftBalance0",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "leftBalance1",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint128",
-				"name": "liq",
-				"type": "uint128"
-			}
-		],
-		"name": "liquidityToShare",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
 		"name": "name",
 		"outputs": [
 			{
@@ -969,6 +832,13 @@
 		"type": "function"
 	},
 	{
+		"inputs": [],
+		"name": "reInvest",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
 		"inputs": [
 			{
 				"internalType": "uint160",
@@ -1036,25 +906,6 @@
 		"type": "function"
 	},
 	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "shares",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
 		"inputs": [],
 		"name": "strategy",
 		"outputs": [
@@ -1101,44 +952,6 @@
 				"internalType": "contract ERC20",
 				"name": "",
 				"type": "address"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "totalFeesToken0",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "totalFeesToken1",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
 			}
 		],
 		"stateMutability": "view",
@@ -1224,30 +1037,6 @@
 		"type": "function"
 	},
 	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "user",
-				"type": "address"
-			}
-		],
-		"name": "unClaimedFee",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
 		"inputs": [],
 		"name": "updateCommission",
 		"outputs": [],
@@ -1257,60 +1046,21 @@
 	{
 		"inputs": [
 			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"name": "userInfo",
-		"outputs": [
-			{
 				"internalType": "uint256",
-				"name": "hasToken0",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "hasToken1",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "index",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint128",
 				"name": "share",
-				"type": "uint128"
+				"type": "uint256"
 			}
 		],
 		"name": "withdraw",
 		"outputs": [
 			{
 				"internalType": "uint256",
-				"name": "baseAmount0",
+				"name": "amount0",
 				"type": "uint256"
 			},
 			{
 				"internalType": "uint256",
-				"name": "baseAmount1",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "tokenLeft0",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "tokenLeft1",
+				"name": "amount1",
 				"type": "uint256"
 			}
 		],
