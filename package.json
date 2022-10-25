@@ -13,7 +13,8 @@
     "codegen": "graph codegen",
     "build": "graph build",
     "auth": "graph auth --product hosted-service bfdef8cfe75e479db9ef641f2e834897",
-    "deploy": "graph deploy --product hosted-service burningcpu/crestgoerli"
+    "deploygoerli": "graph deploy --product hosted-service burningcpu/crestgoerli",
+    "deploymumbai": "graph deploy --product hosted-service burningcpu/crestpolygonmumbai"
   },
 
   "dependencies": {
