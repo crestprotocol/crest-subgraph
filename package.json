@@ -14,7 +14,9 @@
     "build": "graph build",
     "auth": "graph auth --product hosted-service bfdef8cfe75e479db9ef641f2e834897",
     "deploygoerli": "graph deploy --product hosted-service burningcpu/crestgoerli",
-    "deploymumbai": "graph deploy --product hosted-service burningcpu/crestpolygonmumbai"
+    "deploymumbai": "graph deploy --product hosted-service burningcpu/crestpolygonmumbai",
+    "deploymatic": "graph deploy --product hosted-service burningcpu/crest_polygon",
+    "deploymainnet": "graph deploy --product hosted-service burningcpu/crest_mainnet"
   },
 
   "dependencies": {
