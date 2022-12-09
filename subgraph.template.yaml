@@ -41,6 +41,7 @@ templates:
         - Deposit
         - ReBalance
         - Withdraw
+        - ChangeOperator
       abis:
         - name: Vault
           file: ./abi/Vault.json
@@ -55,3 +56,5 @@ templates:
           handler: handleReBalance
         - event: Withdraw(indexed address,address,uint256,uint256,uint256,uint256,uint256,uint256,int24)
           handler: handleWithdraw
+        - event: ChangeOperator(indexed address,address,address,bool)
+          handler: handleChangeOperator

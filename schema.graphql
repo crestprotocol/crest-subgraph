@@ -78,3 +78,13 @@ type CollectFeesEntity @entity {
   currentTick: Int!
   timestamp: BigInt!
 }
+
+type OperatorEntity @entity {
+  id: ID!
+  owner: String!
+  vault: String!
+  operator: String!
+  status: Bool!
+  currentTick: Int!
+  timestamp: BigInt!
+}

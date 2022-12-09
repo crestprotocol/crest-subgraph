@@ -1,5 +1,5 @@
-import { Claim, CollectFees, Deposit, ReBalance, Withdraw} from "../generated/templates/Vault/Vault";
-import { ClaimEntity, CollectFeesEntity, DepositEntity, PositionEntity, WithdrawEntity, OverviewEntity } from "../generated/schema";
+import { Claim, CollectFees, Deposit, ReBalance, Withdraw, ChangeOperator} from "../generated/templates/Vault/Vault";
+import { ClaimEntity, CollectFeesEntity, DepositEntity, PositionEntity, WithdrawEntity, OverviewEntity, OperatorEntity } from "../generated/schema";
 
 export function handleReBalance(event: ReBalance): void {
   let trans_hash = event.transaction.hash.toHexString() + "-" + event.logIndex.toString();
@@ -99,5 +99,17 @@ export function handleCollectFees(event: CollectFees): void {
   collectFees.currentTick = event.params.currentTick;
   collectFees.timestamp = event.block.timestamp;
   collectFees.save();
+}
+
+export function handleChangeOperator(event: ChangeOperator): void {
+  let trans_hash = event.transaction.hash.toHexString() + "-" + event.logIndex.toString();
+  let operator = new OperatorEntity(trans_hash);
+  operator.owner = event.params.sender.toHexString();
+  operator.vault = event.params.vault.toHexString();
+  operator.operator = event.params.operator.toHexString();
+  operator.status = event.params.status;
+  operator.currentTick = event.params.currentTick;
+  operator.timestamp = event.block.timestamp;
+  operator.save();
 }
 
