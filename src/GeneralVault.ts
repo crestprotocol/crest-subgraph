@@ -106,9 +106,8 @@ export function handleChangeOperator(event: ChangeOperator): void {
   let operator = new OperatorEntity(trans_hash);
   operator.owner = event.params.sender.toHexString();
   operator.vault = event.params.vault.toHexString();
-  operator.operator = event.params.operator.toHexString();
+  operator.operators = event.params.operators.toHexString();
   operator.status = event.params.status;
-  operator.currentTick = event.params.currentTick;
   operator.timestamp = event.block.timestamp;
   operator.save();
 }
