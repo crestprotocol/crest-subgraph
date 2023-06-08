@@ -84,7 +84,7 @@ type OperatorEntity @entity {
   owner: String!
   vault: String!
   operator: String!
-  status: Bool!
+  status: Boolean!
   currentTick: Int!
   timestamp: BigInt!
 }
