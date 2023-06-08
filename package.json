@@ -16,7 +16,9 @@
     "deploygoerli": "graph deploy --product hosted-service burningcpu/crestgoerli",
     "deploymumbai": "graph deploy --product hosted-service burningcpu/crestpolygonmumbai",
     "deploymatic": "graph deploy --product hosted-service burningcpu/crest_polygon",
-    "deploymainnet": "graph deploy --product hosted-service burningcpu/crest_mainnet"
+    "deployeth": "graph deploy --product hosted-service burningcpu/crest_ethereum",
+    "deployarb": "graph deploy --product hosted-service burningcpu/crest_arbitrum",
+    "deployop": "graph deploy --product hosted-service burningcpu/crest_optimism"
   },
 
   "dependencies": {
