@@ -10,6 +10,7 @@ dataSources:
     network: {{network}}
     source:
       address: '{{address}}'
+      startBlock: '{{startBlock}}'
       abi: FactoryData
     mapping:
       kind: ethereum/events
